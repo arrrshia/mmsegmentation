@@ -62,8 +62,8 @@ def init_model(config: Union[str, Path, Config],
         elif 'CLASSES' in checkpoint.get('meta', {}):
             # < mmseg 1.x
             classes = checkpoint['meta']['CLASSES']
-            palette = checkpoint['meta']['PALETTE']
-            model.dataset_meta = {'classes': classes, 'palette': palette}
+            #palette = checkpoint['meta']['PALETTE']
+            model.dataset_meta = {'classes': classes, 'palette': [[0,0,0],[255,255,0],[255,127,0],[255,0,0]]}
         else:
             warnings.simplefilter('once')
             warnings.warn(
